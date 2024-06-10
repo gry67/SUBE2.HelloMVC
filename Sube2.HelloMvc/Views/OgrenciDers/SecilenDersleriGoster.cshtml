@@ -1,0 +1,38 @@
+@model OgrenciIdVeDersleriDto
+
+@{
+    ViewData["Title"] = "Seçilen Dersleri Göster";
+}
+
+<h1>Seçilen Dersleri Göster</h1>
+
+@if (Model.dersler.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ders in Model.dersler)
+            {
+                <tr>
+                    <td>@ders.DersAd</td>
+                    <td>@ders.Kredi</td>
+                    <td>
+                        <form asp-action="DersiBirak" asp-route-ogrenciId="@Model.Ogrenciid" asp-route-dersId="@ders.DersId" method="post">
+                            <button type="submit" class="btn btn-danger">Dersi Bırak</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Öğrenci henüz herhangi bir ders seçmemiş.</p>
+}

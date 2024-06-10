@@ -1,0 +1,23 @@
+@model Ders
+
+@{
+    ViewData["Title"] = "Ders Ekle";
+}
+
+<h2>Ders Ekle</h2>
+
+<form asp-action="DersEkle" method="post">
+    <div class="form-group">
+        <label asp-for="DersAd" class="control-label"></label>
+        <input asp-for="DersAd" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Kredi" class="control-label"></label>
+        <input asp-for="Kredi" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Ekle" class="btn btn-primary" />
+    </div>
+</form>
+
+

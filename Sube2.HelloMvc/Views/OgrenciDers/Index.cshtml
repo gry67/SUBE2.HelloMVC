@@ -1,0 +1,30 @@
+@model OgrenciDersDto
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>@Model.ogrenci.Ad için Ders Seçim Ekranı</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ders Adı</th>
+            <th>Kredi</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ders in Model.dersler)
+        {
+            <tr>
+                <td>@ders.DersAd</td>
+                <td>@ders.Kredi</td>
+                <td>
+                    <form asp-action="DersSec" asp-route-ogrenciId="@Model.ogrenci.Ogrenciid" asp-route-dersId="@ders.DersId" method="post">
+                        <button type="submit" class="btn btn-primary">Ders Seç</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

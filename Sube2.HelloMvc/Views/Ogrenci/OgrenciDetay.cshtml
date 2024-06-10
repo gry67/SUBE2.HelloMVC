@@ -1,0 +1,60 @@
+﻿@model OgrViewModel 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>OgrenciDetay</title>
+</head>
+
+
+<body>
+    <h3>Öğrenci detayları</h3>
+    <h2>ViewData ile gelen öğrenci bilgileri</h2>
+    @if (ViewData["ogrenci"]!=null)
+    {
+        <p>Ad: @(((Ogrenci)ViewData["ogrenci"]).Ad)</p>
+    }else
+    {
+        <p>Öğrenci Bulunamadı!</p>
+    }
+
+    <h2>ViewBag ile gelen öğrenci bilgileri</h2>
+    @if (ViewBag.student != null)
+    {
+        <p>Ad: @ViewBag.student.Ad </p>
+    }else
+    {
+        <p>Öğrenci bulunamadı</p>
+    }
+
+    <h4>Model ile gelen öğrenci</h4>
+
+    <p>
+        @Model.Ogrenci.Ad
+    </p>
+
+    <h4>Model ile gelen öğretmen</h4>
+
+    <p>@Model.Ogretmen.Ad</p>
+
+
+    <h4>ViewBag ile gelen Ogretmen</h4>
+
+    <p>
+        @ViewBag.hoca.Ad
+    </p>
+
+    <h4>Ders Adı</h4>
+
+    <p>@Model.Ders.DersAd</p>
+   
+</body>
+
+
+</html>

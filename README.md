@@ -1,1 +1,1 @@
-İnternet Programcılığı dersi ödevidir
+Basit CRUD işlemleri yapan MVC uygulaması
